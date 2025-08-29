@@ -27,7 +27,9 @@ int _printf(const char *format, ...)
             else if (format[i] == 's') 
             {
                 str = va_arg(args, char *);
-                if (!str) str = "(null)";
+                if (!str){
+		       	str = "(null)";
+		}
                 while (*str)
                 {
                     count += _putchar(*str);
@@ -54,4 +56,3 @@ int _printf(const char *format, ...)
     va_end(args);
     return count;
 }
-
