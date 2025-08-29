@@ -8,11 +8,11 @@ int _putchar(char c)
 
 int _printf(const char *format, ...)
 {
-    va_list args;
+    va_list task0;
     int i = 0, count = 0;
     char *str;
 
-    va_start(args, format);
+    va_start(task0, format);
 
     while (format)
     {
@@ -21,12 +21,12 @@ int _printf(const char *format, ...)
             i++;
             if (format[i] == 'c') 
             {
-                char c = va_arg(args, int);
+                char c = va_arg(task0, int);
                 count += _putchar(c);
             }
             else if (format[i] == 's') 
             {
-                str = va_arg(args, char *);
+                str = va_arg(task0, char *);
                 if (!str){
 		       	str = "(null)";
 		}
