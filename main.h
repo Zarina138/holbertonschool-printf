@@ -10,4 +10,5 @@ int _putchar(char c);
 int char_print(char c);
 int string_print(char *s);
 int percent_print(void);
+int int_print(int n);
 #endif
