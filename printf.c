@@ -10,11 +10,14 @@ int _printf(const char *format, ...)
 
     va_start(zg, format);
 
-    while (format[i])
+    while (format && format[i])
     {
         if (format[i] == '%')
         {
             i++;
+            if (!format[i])
+                return (-1);
+
             if (format[i] == 'c')
                 count += char_print(va_arg(zg, int));
             else if (format[i] == 's')
@@ -22,8 +25,11 @@ int _printf(const char *format, ...)
             else if (format[i] == '%')
                 count += percent_print();
             else
-	    {
-	    }
+            {
+                _putchar('%');
+                _putchar(format[i]);
+                count += 2;
+            }
         }
         else
         {
