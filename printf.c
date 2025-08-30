@@ -16,11 +16,11 @@ int _printf(const char *format, ...)
         {
             i++;
             if (format[i] == 'c')
-                count += print_char(va_arg(zg, int));
+                count += char_print(va_arg(zg, int));
             else if (format[i] == 's')
-                count += print_string(va_arg(zg, char *));
+                count += string_print(va_arg(zg, char *));
             else if (format[i] == '%')
-                count += print_percent();
+                count += percent_print();
             else
             {
                 _putchar('%');
