@@ -1,58 +1,41 @@
-#include <stdarg.h>
-#include <unistd.h>
-
-int _putchar(char c)
-{
-    return write(1, &c, 1);
-}
+#include "main.h"
 
 int _printf(const char *format, ...)
 {
-    va_list task0;
+    va_list zg;
     int i = 0, count = 0;
-    char *str;
 
-    va_start(task0, format);
+    if (format == NULL)
+        return (-1);
 
-    while (format)
+    va_start(zg, format);
+
+    while (format[i])
     {
         if (format[i] == '%')
         {
             i++;
-            if (format[i] == 'c') 
-            {
-                char c = va_arg(task0, int);
-                count += _putchar(c);
-            }
-            else if (format[i] == 's') 
-            {
-                str = va_arg(task0, char *);
-                if (!str){
-		       	str = "(null)";
-		}
-                while (*str)
-                {
-                    count += _putchar(*str);
-                    str++;
-                }
-            }
+            if (format[i] == 'c')
+                count += print_char(va_arg(zg, int));
+            else if (format[i] == 's')
+                count += print_string(va_arg(zg, char *));
             else if (format[i] == '%')
-            {
-                count += _putchar('%');
-            }
+                count += print_percent();
             else
             {
-                count += _putchar('%');
-                count += _putchar(format[i]);
+                _putchar('%');
+                _putchar(format[i]);
+                count += 2;
             }
         }
         else
         {
-            count += _putchar(format[i]);
+            _putchar(format[i]);
+            count++;
         }
         i++;
     }
 
-    va_end(args);
-    return count;
+    va_end(zg);
+    return (count);
 }
