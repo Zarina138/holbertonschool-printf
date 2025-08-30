@@ -1,0 +1,56 @@
+.TH _PRINTF 3 "30 August 2025" "1.0" "Holberton School - printf man page"
+.SH NAME
+_printf \- prints text based on a given format
+.SH SYNOPSIS
+#include "main.h"
+int _printf(const char *format, ...);
+.SH DESCRIPTION
+The _printf() function is used to print output to the screen.
+It works based on a format string. In this string, you can have either
+normal characters (which get printed exactly as they are) or special markers called
+format (conversion) specifiers (like %d, %s, etc).
+Whenever _printf() sees one of these specifiers, it replaces it with
+the properly formatted value you passed to the function.
+.SH PARAMETERS
+.TP
+format
+A character string containing the text to be written to standard output
+and format specifiers.
+.TP
+...
+Additional arguments, depending on the format specifiers contained in
+the format string.
+.SH FORMAT SPECIFIERS
+The function handles the following conversion specifiers:
+.TP
+%c
+Prints a single character.
+.TP
+%s
+Prints a string of characters.
+.TP
+%%
+Prints a percent sign.
+.TP
+%d, %i
+Prints an integer in base 10.
+.SH RETURN VALUE
+On success, _printf returns the number of characters printed (excluding
+the null byte used to end output to strings). On failure, it returns -1.
+.SH NOTES
+- You do not have to handle flag characters, field width, precision, or
+  length modifiers.
+- The output is written to standard output.
+.SH EXAMPLE
+.TP
+Simple usage:
+  _printf("Hello %s!\n", "Holberton");
+This will print:
+  Hello Holberton!
+.TP
+Printing an integer:
+  _printf("Number: %d\n", 41);
+This will print:
+  Number: 41
+.SH AUTHORS
+Zarina138 (Zarina Abdulazizova)  gunelismayilzada (Gunel Ismayilzade)
