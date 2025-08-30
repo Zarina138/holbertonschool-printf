@@ -21,12 +21,6 @@ int _printf(const char *format, ...)
                 count += string_print(va_arg(zg, char *));
             else if (format[i] == '%')
                 count += percent_print();
-            else
-            {
-                _putchar('%');
-                _putchar(format[i]);
-                count += 2;
-            }
         }
         else
         {
