@@ -22,7 +22,8 @@ int _printf(const char *format, ...)
             else if (format[i] == '%')
                 count += percent_print();
             else
-                ;
+	    {
+	    }
         }
         else
         {
